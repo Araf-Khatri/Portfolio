@@ -1,20 +1,48 @@
+"use client";
 import { resume } from "@/data/resume";
-import { AiOutlineLinkedin } from "react-icons/ai";
-import { HiOutlineMail } from "react-icons/hi";
+import { useState } from "react";
 
 const CreateHeroLink: React.FC<{
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   href: string;
   children: React.ReactNode;
   target?: string;
-}> = ({ icon, href, children, target = "_self" }) => (
-  <a href={href} className="link-pill" target={target} rel="noreferrer">
-    {icon} <span>{children}</span>
-  </a>
-);
+  isCopyMode?: boolean;
+  copyText?: string;
+}> = ({ icon, href, children, target = "_self", isCopyMode, copyText }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isCopyMode) {
+      e.preventDefault();
+      const textToCopy = copyText || href.replace(/^(mailto|tel):/, "");
+      navigator.clipboard.writeText(textToCopy);
+      setShowTooltip(true);
+      setTimeout(() => setShowTooltip(false), 2000);
+    }
+  };
+
+  return (
+    <div style={{ position: "relative" }}>
+      <a
+        href={href}
+        className="link-pill"
+        target={target}
+        rel="noreferrer"
+        onClick={handleClick}
+      >
+        {icon} <span>{children}</span>
+      </a>
+      <span className={`copy-tooltip ${showTooltip && "visible"}`}>
+        Copied!
+      </span>
+    </div>
+  );
+};
 
 export default function Hero() {
-  const { name, title, summary, contact } = resume;
+  const { name, title, summary, contactLinks } = resume;
+  const [isCopyMode, setIsCopyMode] = useState(false);
 
   return (
     <header className="hero">
@@ -25,31 +53,38 @@ export default function Hero() {
         </div>
         <div className="hero-right">
           <p className="hero-summary">{summary}</p>
+
+          <div className="copy-switch-container">
+            <span className={!isCopyMode ? "active" : ""}>Redirect</span>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={isCopyMode}
+                onChange={(e) => setIsCopyMode(e.target.checked)}
+              />
+              <span className="slider round"></span>
+            </label>
+            <span className={isCopyMode ? "active" : ""}>
+              Copy to clipboard
+            </span>
+          </div>
+
           <nav className="hero-links">
-            <CreateHeroLink
-              icon={<HiOutlineMail />}
-              href={`mailto:${contact.email}`}
-            >
-              {contact.email}
-            </CreateHeroLink>
-            <CreateHeroLink
-              icon={<AiOutlineLinkedin />}
-              href={contact.linkedin}
-              target="_blank"
-            >
-              LinkedIn
-            </CreateHeroLink>
-            <a
-              href={contact.github}
-              className="link-pill"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ↗ GitHub
-            </a>
-            <a href={`tel:${contact.phone}`} className="link-pill">
-              ☎ {contact.phone}
-            </a>
+            {contactLinks.map((link, index) => {
+              const Icon = link.icon;
+              return (
+                <CreateHeroLink
+                  key={index}
+                  icon={<Icon />}
+                  href={link.href}
+                  target={link.target}
+                  isCopyMode={isCopyMode}
+                  copyText={link.copyText}
+                >
+                  {link.label}
+                </CreateHeroLink>
+              );
+            })}
           </nav>
         </div>
       </div>

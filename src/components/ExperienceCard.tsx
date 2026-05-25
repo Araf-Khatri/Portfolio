@@ -1,11 +1,4 @@
-type Experience = {
-  role: string;
-  company: string;
-  location: string;
-  period: string;
-  bullets: string[];
-  tech: string[];
-};
+import type { Experience } from "@/data/resume";
 
 export default function ExperienceCard({
   experience,
@@ -33,7 +26,7 @@ export default function ExperienceCard({
         </ul>
         <div className="tech-stack">
           {experience.tech.map((t) => (
-            <span key={t} className="tech-tag">
+            <span key={t} className="skill-chip">
               {t}
             </span>
           ))}

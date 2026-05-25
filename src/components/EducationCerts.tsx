@@ -1,16 +1,11 @@
-type Education = {
-  degree: string;
-  institution: string;
-  period: string;
-  cgpa: string;
-};
+import type { Certificate, Education } from "@/data/resume";
 
 export default function EducationCerts({
   education,
   certifications,
 }: {
   education: Education;
-  certifications: string[];
+  certifications: Certificate[];
 }) {
   return (
     <div className="edu-certs-grid">

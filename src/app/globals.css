@@ -89,8 +89,8 @@ body::before {
    Hero
 =========================== */
 .hero {
-  padding: clamp(60px, 10vh, 120px) 0 clamp(48px, 8vh, 96px);
-  border-bottom: 1px solid var(--border);
+  padding: clamp(60px, 5vh, 120px) 0 clamp(48px, 5vh, 96px);
+  /* border-bottom: 1px solid var(--border); */
 }
 
 .hero-grid {
@@ -146,7 +146,9 @@ body::before {
 }
 
 .link-pill {
-  display: inline-block;
+  display: flex;
+  gap: 5px;
+  align-items: center;
   padding: 6px 14px;
   border: 1px solid var(--border);
   border-radius: 100px;
@@ -170,8 +172,7 @@ body::before {
    Sections
 =========================== */
 .section {
-  padding: clamp(48px, 8vh, 96px) 0;
-  border-bottom: 1px solid var(--border);
+  padding: clamp(48px, 5vh, 96px) 0;
 }
 
 .section-title {
@@ -285,12 +286,13 @@ body::before {
   grid-template-columns: 160px 1fr;
   gap: var(--col-gap);
   padding: 32px 0;
-  border-top: 1px solid var(--border);
   transition: background 0.2s;
+  border-top: 1px solid var(--border);
 }
 
-.exp-card:last-child {
-  border-bottom: 1px solid var(--border);
+.exp-card:first-child {
+  border-top: none;
+  padding-top: 0;
 }
 
 .exp-meta {
@@ -365,22 +367,74 @@ body::before {
 .proj-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
+  gap: 24px;
 }
 
 .proj-card {
+  --project-accent: var(--accent);
+  --project-accent-soft: var(--accent-dim);
   background: var(--bg-2);
-  border: 1px solid var(--border);
+  border: 1px solid var(--project-accent-soft);
   border-radius: var(--radius-lg);
   padding: 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
   transition:
     border-color 0.2s,
     transform 0.2s;
 }
 
+.proj-card::before,
+.proj-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
 .proj-card:hover {
-  border-color: var(--border-hover);
+  border-color: color-mix(in srgb, var(--project-accent) 20%, transparent);
   transform: translateY(-2px);
+}
+
+.proj-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.proj-content .tech-stack {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.more-projects-card {
+  min-height: 240px;
+  width: 100%;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.more-projects-count {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 0.9;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.more-projects-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
 .proj-header {
@@ -396,6 +450,24 @@ body::before {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.01em;
+}
+
+.proj-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--project-accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.proj-index::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: var(--project-accent);
 }
 
 .proj-subtitle {
@@ -429,7 +501,7 @@ body::before {
 .proj-github {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--accent-2);
+  color: var(--project-accent);
   letter-spacing: 0.04em;
   transition: color 0.15s;
 }
@@ -476,6 +548,13 @@ body::before {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px 32px;
+}
+.certs-card a {
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
 }
 
 .edu-degree {
@@ -546,6 +625,126 @@ body::before {
 
 .footer-stack {
   color: var(--text-muted);
+}
+
+/* ===========================
+   Switch Toggle
+=========================== */
+.copy-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.copy-switch-container span {
+  transition: color 0.2s;
+}
+
+.copy-switch-container span.active {
+  color: var(--accent);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-3);
+  transition: 0.2s;
+  border: 1px solid var(--border);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--text-secondary);
+  transition: 0.2s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+input:checked + .slider:before {
+  background-color: var(--accent);
+  transform: translateX(18px);
+}
+
+.slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+  background-color: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: fadeIn 0.2s ease-out;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.copy-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: var(--text-primary) transparent transparent transparent;
+}
+.copy-tooltip.visible {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 /* ===========================

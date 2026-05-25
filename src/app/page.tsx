@@ -1,7 +1,7 @@
 import EducationCerts from "@/components/EducationCerts";
 import ExperienceCard from "@/components/ExperienceCard";
 import Hero from "@/components/Hero";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectsSection from "@/components/ProjectsSection";
 import TechSkills from "@/components/TechSkills";
 import { resume } from "@/data/resume";
 
@@ -47,11 +47,7 @@ export default async function Home() {
         <h2 className="section-title">
           <span className="section-num">03</span> Projects
         </h2>
-        <div className="proj-list">
-          {data.projects.map((proj, i) => (
-            <ProjectCard key={i} project={proj} />
-          ))}
-        </div>
+        <ProjectsSection projects={data.projects} />
       </section>
 
       {/* Education & Certs */}

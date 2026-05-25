@@ -1,4 +1,4 @@
-type Skills = Record<string, string[]>;
+import type { Skills } from "@/data/resume";
 
 export default function TechSkills({ skills }: { skills: Skills }) {
   return (

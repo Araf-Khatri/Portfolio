@@ -1,14 +1,114 @@
-export const resume = {
+import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
+import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai";
+import { FaCss3Alt, FaHackerrank } from "react-icons/fa";
+import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import { SiLeetcode } from "react-icons/si";
+
+export type ContactLink = {
+  label: string;
+  icon: IconType;
+  href: string;
+  target?: "_blank" | "_self";
+  copyText: string;
+};
+
+export type Skills = Record<string, string[]>;
+
+export type Experience = {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  bullets: string[];
+  tech: string[];
+};
+
+export type Project = {
+  name: string;
+  subtitle: string;
+  period: string | null;
+  type: string;
+  bullets: string[];
+  tech: string[];
+  github: string | null;
+};
+
+export type Education = {
+  degree: string;
+  institution: string;
+  period: string;
+  cgpa: string;
+};
+
+export type Certificate = ReactNode;
+
+export type ResumeType = {
+  name: string;
+  title: string;
+  summary: string;
+  contactLinks: ContactLink[];
+  skills: Skills;
+  experience: Experience[];
+  projects: Project[];
+  education: Education;
+  certifications: Certificate[];
+};
+
+export const resume: ResumeType = {
   name: "Araf Ibrahim Khatri",
   title: "Software Development Engineer",
-  contact: {
-    phone: "+91 7718982263",
-    email: "arafkhatri0@gmail.com",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-  },
   summary:
     "Full-Stack Software Engineer with 2+ years of experience building scalable, production-grade web applications using React, Next.js, TypeScript, Python, and Node.js. Experienced in architecting end-to-end features across frontend, backend, databases, and AWS cloud infrastructure, including authentication systems, REST APIs, admin dashboards, and serverless applications.",
+  contactLinks: [
+    {
+      label: "arafkhatri0@gmail.com",
+      icon: HiOutlineMail,
+      href: "mailto:arafkhatri0@gmail.com",
+      copyText: "arafkhatri0@gmail.com",
+    },
+    {
+      label: "+91 7718982263",
+      icon: HiOutlinePhone,
+      href: "tel:+91 7718982263",
+      copyText: "+91 7718982263",
+    },
+    {
+      label: "LinkedIn",
+      icon: AiOutlineLinkedin,
+      href: "https://www.linkedin.com/in/araf-khatri-9819851b4",
+      target: "_blank",
+      copyText: "https://www.linkedin.com/in/araf-khatri-9819851b4",
+    },
+    {
+      label: "GitHub",
+      icon: AiOutlineGithub,
+      href: "https://github.com/Araf-Khatri",
+      target: "_blank",
+      copyText: "https://github.com/Araf-Khatri",
+    },
+    {
+      label: "HackerRank",
+      icon: FaHackerrank,
+      href: "https://www.hackerrank.com/profile/akplayz01",
+      target: "_blank",
+      copyText: "https://www.hackerrank.com/profile/akplayz01",
+    },
+    {
+      label: "Leetcode",
+      icon: SiLeetcode,
+      href: "https://leetcode.com/Araf_k",
+      target: "_blank",
+      copyText: "https://leetcode.com/Araf_k",
+    },
+    {
+      label: "CSS Battle",
+      icon: FaCss3Alt,
+      href: "https://cssbattle.dev/player/araf_k",
+      target: "_blank",
+      copyText: "https://cssbattle.dev/player/araf_k",
+    },
+  ],
 
   skills: {
     Development: [
@@ -25,8 +125,14 @@ export const resume = {
       "Styled Components",
       "Bootstrap",
     ],
-    Database: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB"],
-    "AWS Services": ["S3", "Lambda Functions", "API Gateway", "Cognito"],
+    Database: ["PostgreSQL", "MongoDB", "Redis", "AWS DynamoDB"],
+    "AWS Services": [
+      "S3",
+      "Lambda Functions",
+      "API Gateway",
+      "Cognito",
+      "AWS SES",
+    ],
     Other: [
       "Docker",
       "DSA",
@@ -56,6 +162,9 @@ export const resume = {
         "DynamoDB",
         "AWS Lambda",
         "AWS Cognito",
+        "AWS SES",
+        "API Gateway",
+        "Tailwind CSS",
       ],
     },
     {
@@ -105,7 +214,7 @@ export const resume = {
       name: "CitizenTubeInd",
       subtitle: "Metal & Steel Manufacturing Company",
       period: "Jan 2023",
-      type: "Freelance Full Stack Developer",
+      type: "Freelance Work",
       bullets: [
         "Built and delivered a full-stack website as a freelance project, driving increased client inquiries through improved online presence and direct contact features.",
         "Developed a responsive, client-side rendered frontend with React.js and Tailwind CSS, plus a backend with Node.js, Express, and Nodemailer for seamless email communication.",
@@ -149,9 +258,42 @@ export const resume = {
   },
 
   certifications: [
-    "CSS-Battle Rank: Top 500 / 370k+ users",
-    "Solved 250+ problems on LeetCode",
-    "HackerRank Certificates: Python (Basic), Problem Solving (Basic)",
-    "Completed Udemy courses in Python, HTML5, CSS3, JavaScript, MERN Stack, and AWS Developer Associate preparation.",
+    "CSS-Battle Rank: Top 700 / 370k+ users",
+    "Solved 250+ problems on Leetcode",
+    <span className="cert-item">
+      HackerRank Certificates:{" "}
+      <a
+        target="_blank"
+        href="https://www.hackerrank.com/certificates/iframe/e7f0792cf3dd"
+      >
+        Python (Basic)
+      </a>
+      ,{" "}
+      <a
+        target="_blank"
+        href="https://www.hackerrank.com/certificates/iframe/c767620ffe92"
+      >
+        Problem Solving (Basic)
+      </a>
+      , &{" "}
+      <a
+        target="_blank"
+        href="https://www.hackerrank.com/certificates/iframe/0e37077e41ab"
+      >
+        SQL (Intermediate)
+      </a>
+    </span>,
+    <span className="cert-item">
+      Completed Udemy courses in Python, HTML5, CSS3, JavaScript, MERN Stack ,
+      and{" "}
+      <a
+        href="https://www.udemy.com/certificate/UC-8823f7c4-f879-4d7d-a26e-37529156a1e9"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        AWS Developer Associate
+      </a>{" "}
+      preparation.
+    </span>,
   ],
 };
