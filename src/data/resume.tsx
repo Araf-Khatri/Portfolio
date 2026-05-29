@@ -234,7 +234,7 @@ export const resume: ResumeType = {
         "Optimized pagination and resolved duplication issues using composite ordering, exploring Redis caching to enhance performance.",
       ],
       tech: ["PostgreSQL", "SQLAlchemy", "JWT", "Redis"],
-      github: "https://github.com",
+      github: "https://github.com/Araf-Khatri/vistagram",
     },
     {
       name: "Natours.io",
@@ -246,7 +246,7 @@ export const resume: ResumeType = {
         "Integrated payment processing with Stripe, enabling secure transactions for tour bookings.",
       ],
       tech: ["Node.js", "Express", "MVC", "Stripe", "SSR"],
-      github: "https://github.com",
+      github: "https://github.com/Araf-Khatri/Natours",
     },
   ],
 
