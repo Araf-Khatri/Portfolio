@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Araf Ibrahim Khatri — Software Development Engineer",
+  title: "Araf Ibrahim Khatri | Software Development Engineer",
   description:
     "Full-Stack Software Engineer with 2+ years of experience building scalable, production-grade web applications.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-favicon.png",
+  },
 };
 
 export default function RootLayout({
