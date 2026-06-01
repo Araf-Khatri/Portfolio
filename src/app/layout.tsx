@@ -3,7 +3,7 @@ import "./globals.css";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 export const metadata: Metadata = {
-  title: "Araf Khatri - Full-Stack Software Development Engineer",
+  title: "Araf Khatri | Full-Stack Software Development Engineer",
   description:
     "Full-Stack Software Engineer with 2+ years of experience in React, Next.js, TypeScript, Python, and AWS. Building scalable web apps, serverless platforms, and production-grade UIs.",
   icons: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     apple: "/apple-favicon.png",
   },
   openGraph: {
-    title: "Araf Khatri - Full-Stack Software Development Engineer",
+    title: "Araf Khatri | Full-Stack Software Development Engineer",
     description:
       "Software Development Engineer with 2+ years of experience in React, Next.js, TypeScript, Python, and AWS. Building scalable web apps, serverless platforms, and production-grade UIs.",
     url: baseUrl,
@@ -38,6 +38,18 @@ export const metadata: Metadata = {
     "Node.js",
     "Mumbai",
     "Software Engineer",
+    "Web Developer",
+    "Araf Khatri Portfolio",
+    "Araf Khatri Website",
+    "Araf Khatri Github",
+    "Araf Khatri LinkedIn",
+    "Hire Araf Khatri",
+    "Hire Full-Stack Developer",
+    "Hire React Developer",
+    "Hire Next.js Developer",
+    "Hire TypeScript Developer",
+    "Hire Python Developer",
+    "Hire AWS Developer",
   ],
 };
 
