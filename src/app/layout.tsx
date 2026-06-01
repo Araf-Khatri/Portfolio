@@ -1,14 +1,44 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 export const metadata: Metadata = {
-  title: "Araf Ibrahim Khatri | Software Development Engineer",
+  title: "Araf Khatri - Full-Stack Software Development Engineer",
   description:
-    "Full-Stack Software Engineer with 2+ years of experience building scalable, production-grade web applications.",
+    "Full-Stack Software Engineer with 2+ years of experience in React, Next.js, TypeScript, Python, and AWS. Building scalable web apps, serverless platforms, and production-grade UIs.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-favicon.png",
   },
+  openGraph: {
+    title: "Araf Khatri - Full-Stack Software Development Engineer",
+    description:
+      "Software Development Engineer with 2+ years of experience in React, Next.js, TypeScript, Python, and AWS. Building scalable web apps, serverless platforms, and production-grade UIs.",
+    url: baseUrl,
+    siteName: "Araf Khatri Portfolio",
+    images: [{ url: `${baseUrl}/shared-image.png`, width: 762, height: 399 }],
+    type: "website",
+    locale: "en_US",
+  },
+
+  metadataBase: new URL(baseUrl),
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "Araf Khatri",
+    "Full-Stack Developer",
+    "Frontend Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "AWS",
+    "Node.js",
+    "Mumbai",
+    "Software Engineer",
+  ],
 };
 
 export default function RootLayout({
