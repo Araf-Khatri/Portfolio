@@ -47,6 +47,7 @@ export type ResumeType = {
   name: string;
   title: string;
   summary: string;
+  resumeLink: string;
   contactLinks: ContactLink[];
   skills: Skills;
   experience: Experience[];
@@ -60,6 +61,8 @@ export const resume: ResumeType = {
   title: "Software Development Engineer",
   summary:
     "Full-Stack Software Engineer with 2+ years of experience building scalable, production-grade web applications using React, Next.js, TypeScript, Python, and Node.js. Experienced in architecting end-to-end features across frontend, backend, databases, and AWS cloud infrastructure, including authentication systems, REST APIs, admin dashboards, and serverless applications.",
+  resumeLink:
+    "https://drive.google.com/file/d/1zNbv-wP3MLGnMfsG9G-VdGgGILhm4PnI/view",
   contactLinks: [
     {
       label: "arafkhatri0@gmail.com",

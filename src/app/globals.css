@@ -14,6 +14,7 @@
 
   --accent: #66ccff;
   --accent-dim: #66ccff1f;
+  --accent-dim-20: #66ccff33;
   --accent-2: #f0a060;
 
   --font-display: "Syne", sans-serif;
@@ -171,6 +172,41 @@ body::before {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-dim);
+}
+
+/* ===========================
+   CTA Button
+=========================== */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  margin-top: 20px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 1.5px solid var(--accent);
+  border-radius: 100px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  text-transform: uppercase;
+  box-shadow: 0 0 16px rgba(102, 204, 255, 0.3);
+  width: 100%;
+}
+
+.cta-button:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--accent-dim-20);
+  box-shadow: 0 0 24px rgba(102, 204, 255, 0.5);
 }
 
 /* ===========================

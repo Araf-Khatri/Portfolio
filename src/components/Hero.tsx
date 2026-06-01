@@ -41,7 +41,7 @@ const CreateHeroLink: React.FC<{
 };
 
 export default function Hero() {
-  const { name, title, summary, contactLinks } = resume;
+  const { name, title, summary, contactLinks, resumeLink } = resume;
   const [isCopyMode, setIsCopyMode] = useState(false);
 
   return (
@@ -50,6 +50,15 @@ export default function Hero() {
         <div className="hero-left">
           <h1 className="hero-name">{name}</h1>
           <p className="hero-title">{title}</p>
+
+          <a
+            href={resumeLink}
+            target="_blank"
+            rel="noreferrer"
+            className="cta-button"
+          >
+            Download Resume
+          </a>
         </div>
         <div className="hero-right">
           <p className="hero-summary">{summary}</p>
