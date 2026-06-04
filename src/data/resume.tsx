@@ -161,6 +161,7 @@ export const resume: ResumeType = {
         "React",
         "NextJS",
         "TypeScript",
+        "Javascript",
         "Python",
         "AWS S3",
         "DynamoDB",
@@ -169,7 +170,6 @@ export const resume: ResumeType = {
         "AWS SES",
         "API Gateway",
         "Tailwind CSS",
-        "Javascript",
       ],
     },
     {
