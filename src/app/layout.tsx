@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "AWS",
     "Node.js",
     "Mumbai",
+    "Software Engineer experienced in React, Next.js, TypeScript, Python, and AWS",
     "Software Engineer",
     "Web Developer",
     "Araf Khatri Portfolio",
