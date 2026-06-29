@@ -65,8 +65,14 @@ export default function Hero() {
 
           <div className="copy-switch-container">
             <span className={!isCopyMode ? "active" : ""}>Redirect</span>
-            <label className="switch">
+            <label htmlFor="toggle-checkbox" className="switch">
               <input
+                id="toggle-checkbox"
+                aria-label={
+                  isCopyMode
+                    ? "Currently copying link, switch to open link"
+                    : "Currently opening link, switch to copy link"
+                }
                 type="checkbox"
                 checked={isCopyMode}
                 onChange={(e) => setIsCopyMode(e.target.checked)}
