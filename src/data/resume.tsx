@@ -287,7 +287,6 @@ export const resume: ResumeType = {
   },
 
   certifications: [
-    "CSS-Battle Rank: Top 700 / 370k+ users",
     "Solved 250+ problems on Leetcode",
     <span className="cert-item">
       HackerRank Certificates:{" "}
@@ -324,5 +323,6 @@ export const resume: ResumeType = {
       </a>{" "}
       preparation.
     </span>,
+    "CSS-Battle Rank: Top 700 / 370k+ users",
   ],
 };
