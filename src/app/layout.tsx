@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { personSchema } from "./lib/personSchema";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 export const metadata: Metadata = {
@@ -25,33 +26,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  keywords: [
-    "Araf Khatri",
-    "Full-Stack Developer",
-    "Frontend Engineer",
-    "React Developer",
-    "Next.js Developer",
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "AWS",
-    "Node.js",
-    "Mumbai",
-    "Software Engineer experienced in React, Next.js, TypeScript, Python, and AWS",
-    "Software Engineer",
-    "Web Developer",
-    "Araf Khatri Portfolio",
-    "Araf Khatri Website",
-    "Araf Khatri Github",
-    "Araf Khatri LinkedIn",
-    "Hire Araf Khatri",
-    "Hire Full-Stack Developer",
-    "Hire React Developer",
-    "Hire Next.js Developer",
-    "Hire TypeScript Developer",
-    "Hire Python Developer",
-    "Hire AWS Developer",
-  ],
 };
 
 export default function RootLayout({
@@ -71,6 +45,10 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
       <body>{children}</body>
