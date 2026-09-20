@@ -282,7 +282,7 @@ export const resume: ResumeType = {
   education: {
     degree: "B.Sc. in Information Technology (BSc. IT)",
     institution: "University of Mumbai",
-    period: "Jun 2021 - Apr 2024",
+    period: "Aug 2023 - Apr 2026",
     cgpa: "8",
   },
 
